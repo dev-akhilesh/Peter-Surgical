@@ -21,17 +21,18 @@ import {
 import { HamburgerIcon, TriangleDownIcon } from '@chakra-ui/icons';
 import logo from '../assets/logo.svg';
 import setting from '../assets/setting.svg';
-import drop from '../assets/drop.svg';
+import drop from '../assets/drop.svg'; 
 import beta from '../assets/beta.svg';
+import bin from '../assets/bin.svg';
 
-export default function MenuBtn() {
+export default function MobileMenu() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const renderMenu = (label, options) => (
+  const renderMenu = (label, options, logo) => (
     <Flex alignItems="center" mt={options ? '15px' : '10px'}>
       <Image
-        src={options ? setting : drop}
-        alt="peters"
+        src={logo === setting ? setting : logo} 
+        alt="logo"
         w={options ? '17px' : '24px'}
         h={options ? '17px' : '24px'}
         m={options ? '0px 5px 0px 12px' : '0px 5px 0px 10px'}
@@ -65,7 +66,7 @@ export default function MenuBtn() {
       <IconButton
         display={{ base: 'block', xl: 'none' }}
         icon={<HamburgerIcon />}
-        colorScheme="green"
+        colorScheme="teal"
         onClick={onOpen}
       />
       <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
@@ -75,14 +76,11 @@ export default function MenuBtn() {
 
           <DrawerBody bg={'black'}>
             <Box>
-              {/* //image */}
               <Box borderBottom={'2px solid #212121'}>
                 <Box p={'13px 10px 13px 5px'} w={'90%'} m={'0px 15px 15px 15px'}>
                   <Image src={logo} alt="peters" w={'128px'} h={'47px'} />
                 </Box>
               </Box>
-              {/* data-in box */}
-
               <Flex
                 flexDir={'column'}
                 gap={'10px'}
@@ -101,20 +99,8 @@ export default function MenuBtn() {
                 >
                   data-in
                 </Text>
-                {renderMenu('Energy', [
-                  'Category 1',
-                  'Category 2',
-                  'Category 3',
-                  'Category 4',
-                  'Category 5',
-                ])}
-                {renderMenu('Water and Effluents', [
-                  'Category 1',
-                  'Category 2',
-                  'Category 3',
-                  'Category 4',
-                  'Category 5',
-                ])}
+                {renderMenu('Energy', ['Category 1', 'Category 2', 'Category 3', 'Category 4', 'Category 5'], setting)}
+                {renderMenu('Water and Effluents', ['Category 1', 'Category 2', 'Category 3', 'Category 4', 'Category 5'], drop)}
               </Flex>
 
               <Flex
@@ -150,7 +136,7 @@ export default function MenuBtn() {
                   </Text>
                 </Flex>
                 <Flex alignItems={'center'} mt={'20px'}>
-                  <Image src={drop} alt="peters" w={'24px'} h={'24px'} ml={'10px'} />
+                  <Image src={bin} alt="peters" w={'17px'} h={'17px'} ml={'10px'} />
                   <Text
                     color="#FFF"
                     fontFamily="Inter"

@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { data } from "./data/data"
 import { useEffect } from 'react';
 import { getData } from './redux/action';
-import MenuBtn from './components/Drawer';
+import MobileMenu from './components/MobileMenu';
 import Sidebar from "./components/Sidebar"
 import MainContent from './components/MainContent';
 import './App.css';
@@ -17,7 +17,7 @@ function App() {
   }, [dispatch])
   return (
     <Box className="App" display={{ base: "block", xl: "flex" }}>
-      <MenuBtn />
+      <MobileMenu />
       <Sidebar />
       <MainContent />
 
