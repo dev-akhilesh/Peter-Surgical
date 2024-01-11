@@ -107,4 +107,5 @@ const extractDataByYear = (data, year, property) => {
     .map((item) => item[property]);
 };
 
+
 export default MainBarLineChart;

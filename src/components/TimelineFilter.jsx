@@ -3,9 +3,8 @@ import { Box, Flex, Select, Text, Icon } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import CardSection from "./CardSection";
 import MainBarLineChart from "./MainBarLineChart";
-import PieChart from "./PieChart";
 import { useSelector } from "react-redux";
-import TableDisplay from "./Table";
+
 
 const TimelineFilter = () => {
   const store = useSelector((store) => store.data);
@@ -87,10 +86,6 @@ const TimelineFilter = () => {
             Emission/Revenue
           </Text>
           <MainBarLineChart filteredData={filteredData} />
-        </Box>
-        <Box display={{ base: "block", xl: "flex" }} gap={8}>
-          <PieChart />
-          <TableDisplay />
         </Box>
       </Box>
     </Box>
